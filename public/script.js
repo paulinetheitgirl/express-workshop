@@ -57,13 +57,17 @@ function getBlogposts (url) {
 }
 
 function addBlogpostsToPage (data) {
+    var postContainer   = document.querySelector('.post-container');
+    while(postContainer.hasChildNodes()){
+        postContainer.removeChild(postContainer.firstChild);
+    }
     for (var blogpost in data) {
         if (data.hasOwnProperty(blogpost)) {
 
             var postDiv         = document.createElement('div');
             var postText        = document.createElement('p');
             var thumbnail       = document.createElement('img');
-            var postContainer   = document.querySelector('.post-container');
+            
 
             thumbnail.src = "./img/logo2.png";
             thumbnail.className = "thumbnail";
